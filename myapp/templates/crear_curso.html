@@ -5,4 +5,19 @@
 {% endblock title %}
 {% block content %}
 Agregar curso
+<form action="{% url 'crear-curso' %}" method="POST">
+{% csrf_token %}
+    <input type="text" name="code" placeholder="code">
+    <input type="text" name="name" placeholder="name">
+    <input type="number" name="hour" placeholder="hour">
+    <input type="number" name="credits" placeholder="credits">
+    <label for="state">state</label>
+    <select name="state">
+        <option value="1">Si</option>
+        <option value="0">No</option>
+    <input type="submit" value="Agregar">
+</form>
+
+
+
 {% endblock content %}

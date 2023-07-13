@@ -35,8 +35,23 @@
         </ul>
     </nav>
     <hr>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     {% block content %}
     
     {% endblock content %}
+    <script>
+        // Ocultar automáticamente el mensaje flash después de 5 segundos
+        setTimeout(function() {
+            var messages = document.getElementsByClassName("messages")[0];
+            messages.style.display = "none";
+        }, 3000);
+    </script>
 </body>
+
 </html>

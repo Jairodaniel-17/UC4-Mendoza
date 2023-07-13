@@ -5,4 +5,16 @@
 {% endblock title %}
 {% block content %}
     Listado de cursos
+<ul>
+    {% for curso in  cursos%}
+        <li>
+            <h4>
+                {{curso.code}} - {{curso.name}} - {{curso.hour}}  - {{curso.credits}}  - {{curso.state}} 
+            </h4>
+            <a href="{% url 'eliminar-curso' id=curso.idcourse %}">eliminar</a>
+        |</li>
+    {%empty%}
+    No hay cursos
+    {% endfor %}
+ </ul>
 {% endblock content %}
